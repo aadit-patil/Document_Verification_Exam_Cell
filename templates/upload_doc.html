@@ -1,0 +1,23 @@
+
+
+<h1>Upload Your Docs Here</h1>
+
+
+<!-- {% for record in record %}
+    <h2>{{record.name}}</h2>
+    <h1>Val</h1>
+{% endfor %} -->
+
+{% block content %}
+<h2>Acknowledge Number: {{ack}}</h2>
+<form method="post" enctype="multipart/form-data" style="border: solid 2px;">
+    {% csrf_token %}
+    <input type="file" name="doc">
+    <input type="file" name="doc2">
+    {% comment %} <input type="submit" name="doc1"> {% endcomment %}
+    {% comment %} <input type="file" name="upload_doc"> {% endcomment %}
+    {% comment %} <input type="submit" name="doc2"> {% endcomment %}
+    {% comment %} <input type="file" name="upload_doc"> {% endcomment %}
+    <input type="submit" name="upload_doc">
+    {% endblock content %}
+</form>
