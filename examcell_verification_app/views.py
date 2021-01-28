@@ -35,8 +35,9 @@ def InsertRecord(request):
         name=request.POST.get('name')
         prn=request.POST.get('PRN')
         email=request.POST.get('email')
-        ack= ''.join(random.choice('0123456789ABCDEFGabcdefg') for i in range(16))
+        ack= id.join(random.choice('0123456789ABCDEFGabcdefg') for i in range(16))
         print(ack)
+        # ack check for same ack
         request.session['ack_no']=ack
         request.session['id']=id
         #inserting in users
@@ -84,7 +85,7 @@ def list_users(request):
 
 
 def pendingusers(request):
-    cur.execute("Select * from 'users' u inner join  `verification status of users` v on v.user_ID = u.user_ID inner join 'verification status' s on v.user_ID = s.ID Where s.ID=1; ")
+    cur.execute("Select * from 'users' u inner join  `verification status` v on v.user_ID = u.user_ID inner join 'verification status of user' s on v.user_ID = s.ID Where s.ID=1; ")
     data = cur.fetchall()
     #return list(data)
     print(list(data))
