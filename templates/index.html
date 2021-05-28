@@ -1,38 +1,79 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <title>Exam_Cell</title>
+  <title>Examcell Project</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="../">Examcell Project</a>
-      </div>
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Form 1</a></li>
-      <li><a href="#">From 2</a></li>
-      <li><a href="../list_users">Login Admin</a></li>
-      </ul>
-    </div>
-  </nav>
-
-<style>
-    form
-    {
-        width:50%;
-        padding:20px;
-    }
-</style>
 <body>
 
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Examcell Project</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="./form">Form 1</a></li>
+      <li><a href="#">From 2</a></li>
+      <li><a href="./login">Login Admin</a></li>
+    </ul>
+  </div>
+</nav>
+<style>
+    .container{
+        margin: auto;
+        text-align: center;
+        max-width: 75%;
+    }
+    body {
+    text-align: center;
+}
+form {
+    display: inline-block;
+    width: 70%;
+    
+}
+  
+  
+</style>
+{% block content %}
 
+<body>
+    <div class="container">
+    <img src="../media/wce.png" height="30%" >
+    <div class="accordion" id="accordionExample">
+        <div id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="card">
+              <div class="card-header" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <b>Instructions</b>
+              </div>
+              <div id="collapseOne" class="card-block collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <p>1.Any bonafide student of Walchand College of Engineering, Sangli can apply for verification of
+                    University documents like Degree Certificate of passing, Statement of Marks/Grades or CPI
+                    conversion certificate to the examination section in the prescribed application available with
+                    the controller of Examinations.<br />
+                    2.He/she should submit the application in  person/email at the Examcell
+                    (examcell@walchandsangli.ac.in).<br />
+                The applicant should state the reason and submit documents for verification.</li>
+                3. Documents required for verification: Degree Certificate/ Provisional Certificate, Consolidated
+                    Statement of Grade sheets/ Mark Sheets (All Semester), and a proof of identity of the
+                    candidate along with one set of legible photo copies (both front and back side) of the said
+                    certificates in a full-scale envelop<br />
+               4. The fee for verification is Rs. 500 /- (Rupees Five Hundred only) per student. The payment can
+                    be made online or DD of nationalized bank in favor of “Director Walchand College of Engg.,
+                    Sangli.” <br /> </p>
+              </div>
+              
+                
+                   
+                
+            </div>
+          </div>
+        </div>
+    </div>
     <form method="POST">
         {% csrf_token %}
         <div class="form-group">
@@ -41,23 +82,44 @@
         </div>
         <div class="form-group">
             <label for="prn">Enter PRN</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter PRN" name="PRN">
+            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter PRN" name="prn">
+        </div>
+        <div class="form-group">
+            <label for="branch">Enter Branch</label>
+            <select name="branch" id="branch"  class="form-control">
+                <option value="SELECT">--SELECT--</option>
+                <option value="INFORMATION TECHNOLOGY">INFORMATION TECHNOLOGY</option>
+                <option value="COMPUTER SCIENCE AND ENGINEERING">COMPUTER SCIENCE AND ENGINEERING</option>
+                <option value="ELECTRONICS ENGINEERING">ELECTRONICS ENGINEERING</option>
+                <option value="ELECTIRCAL ENGINEERING">ELECTIRCAL ENGINEERING</option>
+                <option value="MECHANICAL ENGINEERING">MECHANICAL ENGINEERING</option>
+                <option value="CIVIL ENGINEERING">CIVIL ENGINEERING</option>
+              </select>
         </div>
         <div class="form-group">
             <label for="email">Enter Email</label>
             <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter Email" name="email">
         </div>
+        <div class="form-group">
+            <label >Enter Mobile Number</label>
+            <input type="text" class="form-control" id="formGroupExampleInput2" value="+91 " name="mob">
+        </div>
+        <div class="form-group">
+            <label >Year of Study</label>
+            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="2018-22" name="yos">
+        </div>
+        <div class="form-group">
+            <label for="name">Enter Address</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder=" House No./Area, City ,State" name="addr">
+        </div>
+        
+        
         <input type="submit" >
+
+
     </form>
-    {% comment %} <h1>Create new record</h1>
-    <form method="POST">
-     {% csrf_token %}
-    <h2>PRN NO : </h2>
-    <input type="text"  placeholder="Enter Prn Number"  name="prn">
-    <br>
-    <h2>Enter Email</h2>
-    <input type="text" name="email"  placeholder="Enter Email ">
-    <input type="submit"  value="Insert Data">
-    </form> {% endcomment %}
+   
+</div>
 </body>
 </html>
+{% endblock %}

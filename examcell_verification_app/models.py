@@ -12,3 +12,10 @@ from datetime import date
 #     ACK_NO=models.CharField(max_length=10, unique=True, default=uuid.uuid4)
 #     class Meta:
 #             db_table="users"
+
+class Dash:
+    verified:int
+    total:int
+    notv:int
+    pending:int
+    categories:list

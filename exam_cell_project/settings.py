@@ -127,7 +127,24 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT=os.path.join(BASE_DIR,'collected_static')
 
-
-
+STATICFILES_DIR=[
+    os.path.join(BASE_DIR,'static')
+]
 MEDIA_URL='/media/'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER ='wce.examcell123@gmail.com'
+EMAIL_HOST_PASSWORD = 'Pass@123'
+
+#razarpay
+
+RAZORPAY_API_KEY='rzp_test_Q3BsAA1rvI7v3G'
+RAZORPAY_API_SECRET_KEY='TIFbDeahcJtTjuo0nLWFnM6T'
+
+

@@ -1,6 +1,29 @@
 
 
-<h1>Upload Your Docs Here</h1>
+    <head>
+      <title>Examcell Project</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+    
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Examcell Project</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="./form">Form 1</a></li>
+          <li><a href="#">From 2</a></li>
+          <li><a href="./login">Login Admin</a></li>
+        </ul>
+      </div>
+    </nav>
+
 
 
 <!-- {% for record in record %}
@@ -9,15 +32,73 @@
 {% endfor %} -->
 
 {% block content %}
-<h2>Acknowledge Number: {{ack}}</h2>
+
+<h3> Please Upload Appropriate Document</h3>
+
 <form method="post" enctype="multipart/form-data" style="border: solid 2px;">
+
     {% csrf_token %}
-    <input type="file" name="doc">
-    <input type="file" name="doc2">
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Document Name</th>
+            <th scope="col">Upload</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Degree/Provisional Certificate</td>
+            <td>
+                <input type="file" name="doc1">
+            </td>
+           
+          </tr>
+
+          <tr>
+            <th scope="row">2</th>
+            <td>Gradesheets(of all semesters)</td>
+            <td>
+               <input type="file" name="doc2">
+               (All in One PDF)
+            </td>
+           
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Photograph</td>
+            <td>
+                <input type="file" name="photo">(< 5MB)
+            </td>
+           
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>Proof of identity</td>
+            <td>
+                <input type="file" name="doc3">
+            </td>
+           
+          </tr>
+        </tbody>
+    </table>
+    
+
+    
+   
     {% comment %} <input type="submit" name="doc1"> {% endcomment %}
     {% comment %} <input type="file" name="upload_doc"> {% endcomment %}
     {% comment %} <input type="submit" name="doc2"> {% endcomment %}
     {% comment %} <input type="file" name="upload_doc"> {% endcomment %}
-    <input type="submit" name="upload_doc">
+    
+    <div class="text-center">
+        <input type="SUBMIT"  name="upload_doc" class="btn btn-primary btn-lg btn-block" >
+      </div>
+
     {% endblock content %}
 </form>
+<button type="button" class="btn btn-primary btn-lg">Check Your Application Status</button>
+<button type="button" class="btn btn-secondary btn-lg">Update Your Documents</button>
